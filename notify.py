@@ -63,29 +63,6 @@ def sendDing(webhook):
     except Exception as e:
         print('钉钉机器人推送异常，原因为: ' + str(e))
         print(traceback.format_exc())
-        
-#企业微信群自定义机器人推送
-def sendDing(webhook):
-    try:
-        #要发送邮件内容
-        content = readFile('./log.txt')
-        data = {
-            "msgtype": "markdown",
-            "markdown": {
-                "title": 'UnicomTask每日报表',
-                "content": content
-            }
-        }
-        headers = {
-            'Content-Type': 'application/json;charset=utf-8'
-        }
-        res = requests.post(webhook,headers=headers,json=data)
-        res.encoding = 'utf-8'
-        res = res.json()
-        print('qywx push : ' + res['errmsg'])
-    except Exception as e:
-        print('企业微信机器人推送异常，原因为: ' + str(e))
-        print(traceback.format_exc())
 
 #发送Tg通知
 def sendTg(token,chat_id):
