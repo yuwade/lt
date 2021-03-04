@@ -70,10 +70,10 @@ def sendDing(webhook):
         #要发送邮件内容
         content = readFile('./log.txt')
         data = {
-            'msgtype': 'markdown',
-            'markdown': {
-                'title': 'UnicomTask每日报表',
-                'text': content
+            "msgtype": "markdown",
+            "markdown": {
+                "title": 'UnicomTask每日报表',
+                "content": content
             }
         }
         headers = {
